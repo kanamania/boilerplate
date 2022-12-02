@@ -12,8 +12,9 @@ RUN apt-get update \
 
 # set work directory
 WORKDIR /app
-COPY ./requirements ./requirements
-RUN pip install -r requirements/dev-requirements.txt
+COPY ./requirements.txt ./requirements.txt
+RUN pip install -r requirements.txt
+RUN pip install --upgrade pip
 # zsh config
 RUN curl -L https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | bash
 # copy entrypoint.sh
